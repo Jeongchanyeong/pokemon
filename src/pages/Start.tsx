@@ -26,14 +26,15 @@ const Start = () => {
 
   const StartBurron = styled.button`
     background-color: #851729;
-    color: white;
+    color: #ffffff;
     font-size: 150px;
 
     width: 500px;
     height: 200px;
 
     border-radius: 20px;
-    border: 2px solid white;
+    border: 4px dotted;
+    border-color: #fff87b;
 
     font-family: 'Galmuri9', sans-serif;
   `;

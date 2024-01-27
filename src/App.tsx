@@ -58,14 +58,15 @@ table {
 }
 
 body{
+  font-family: "Galmuri9", sans-serif;
+
   display: flex;
   align-items: center;
   justify-content: center;
   text-align:center;
   height: 100vh;
 
-  font-family: "Galmuri9", sans-serif;
-  background-color : #d3d3d3;
+  background-color : #ffffff;
 }
 
 a{
