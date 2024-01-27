@@ -34,7 +34,7 @@ const Start = () => {
 
     border-radius: 20px;
     border: 4px dotted;
-    border-color: #fff87b;
+    border-color: #fff88b;
 
     font-family: 'Galmuri9', sans-serif;
   `;
