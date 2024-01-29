@@ -1,9 +1,10 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import Router from './Router';
+import GlobalButton from './common/GlobalButton';
+import { Helmet } from 'react-helmet';
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css');
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -35,6 +36,8 @@ footer, header, hgroup, main, menu, nav, section {
     display: none;
 }
 body {
+  font-family: 'Sixtyfour', sans-serif;
+
   line-height: 1;
 }
 menu, ol, ul {
@@ -58,7 +61,7 @@ table {
 }
 
 body{
-  font-family: "Galmuri9", sans-serif;
+  font-family: 'Galmuri11', sans-serif;
 
   display: flex;
   align-items: center;
@@ -77,6 +80,12 @@ a{
 function App() {
   return (
     <>
+      <Helmet>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css"
+        />
+      </Helmet>
       <GlobalStyle />
       <Router />
     </>

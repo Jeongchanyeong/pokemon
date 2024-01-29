@@ -24,10 +24,11 @@ const Start = () => {
     display: flex;
   `;
 
-  const StartBurron = styled.button`
+  const StartButton = styled.button`
     background-color: #851729;
     color: #ffffff;
     font-size: 150px;
+    font-family: 'Galmuri11', sans-serif;
 
     width: 500px;
     height: 200px;
@@ -35,21 +36,19 @@ const Start = () => {
     border-radius: 20px;
     border: 4px dotted;
     border-color: #fff88b;
-
-    font-family: 'Galmuri9', sans-serif;
   `;
 
   return (
     <>
       <Wrapper>
         <Column></Column>
-        <StartBurron
+        <StartButton
           onClick={() => {
             navigate('/list');
           }}
         >
           Start
-        </StartBurron>
+        </StartButton>
         <Column></Column>
       </Wrapper>
     </>
