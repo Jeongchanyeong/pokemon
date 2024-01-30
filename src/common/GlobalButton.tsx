@@ -8,8 +8,8 @@ interface ButtonProps {
 }
 
 const MyButton = styled.button`
-  width: 70px;
-  height: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
   margin: 5px;
 
   border: none;

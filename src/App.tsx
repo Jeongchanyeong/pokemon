@@ -1,9 +1,9 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import Router from './Router';
-import GlobalButton from './common/GlobalButton';
-import { Helmet } from 'react-helmet';
 
+import MessageForm from './common/MessageForm';
+import { Helmet } from 'react-helmet-async';
 const GlobalStyle = createGlobalStyle`
 
 html, body, div, span, applet, object, iframe,
@@ -87,6 +87,7 @@ function App() {
         />
       </Helmet>
       <GlobalStyle />
+      <MessageForm />
       <Router />
     </>
   );
