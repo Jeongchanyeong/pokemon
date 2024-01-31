@@ -6,31 +6,6 @@ interface ButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  left: 0;
-  top: 0;
-  background-color: #2f2f2f;
-  width: 200px;
-
-  height: 100%;
-  overflow: auto;
-  position: fixed;
-
-  margin: 0px;
-`;
-const ButtonWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  height: 100%;
-`;
-
 const Button = styled.button<ButtonProps>`
   width: 140px;
   height: 30px;
@@ -55,64 +30,63 @@ const TypeButton = () => {
   const handleClick = () => console.log('하이'); // 추후 타입별 필터링 로직으로 구성 예정
 
   return (
-    <Wrapper>
-      <ButtonWrapper>
-        <Button onClick={handleClick} bgColor="#777777">
-          노말
-        </Button>
-        <Button onClick={handleClick} bgColor="#d18e38">
-          격투
-        </Button>
-        <Button onClick={handleClick} bgColor="#a1d5ff">
-          비행
-        </Button>
-        <Button onClick={handleClick} bgColor="#6f32b9">
-          독
-        </Button>
-        <Button onClick={handleClick} bgColor="#8f4a00">
-          땅
-        </Button>
-        <Button onClick={handleClick} bgColor="#baa791">
-          바위
-        </Button>
-        <Button onClick={handleClick} bgColor="#97b53c">
-          벌레
-        </Button>
-        <Button onClick={handleClick} bgColor="#321660">
-          고스트
-        </Button>
-        <Button onClick={handleClick} bgColor="#3e85bb">
-          강철
-        </Button>
-        <Button onClick={handleClick} bgColor="#de4f27">
-          불꽃
-        </Button>
-        <Button onClick={handleClick} bgColor="#1a8de4">
-          물
-        </Button>
-        <Button onClick={handleClick} bgColor="#308f18">
-          풀
-        </Button>
-        <Button onClick={handleClick} bgColor="#eae428">
-          전기
-        </Button>
-        <Button onClick={handleClick} bgColor="#e38661">
-          에스퍼
-        </Button>
-        <Button onClick={handleClick} bgColor="#82e4ff">
-          얼음
-        </Button>
-        <Button onClick={handleClick} bgColor="#5b53cf">
-          드래곤
-        </Button>
-        <Button onClick={handleClick} bgColor="#444444">
-          악
-        </Button>
-        <Button onClick={handleClick} bgColor="#e695ff">
-          페어리
-        </Button>
-      </ButtonWrapper>
-    </Wrapper>
+    <>
+      {' '}
+      <Button onClick={handleClick} bgColor="#777777">
+        노말
+      </Button>
+      <Button onClick={handleClick} bgColor="#d18e38">
+        격투
+      </Button>
+      <Button onClick={handleClick} bgColor="#a1d5ff">
+        비행
+      </Button>
+      <Button onClick={handleClick} bgColor="#6f32b9">
+        독
+      </Button>
+      <Button onClick={handleClick} bgColor="#8f4a00">
+        땅
+      </Button>
+      <Button onClick={handleClick} bgColor="#baa791">
+        바위
+      </Button>
+      <Button onClick={handleClick} bgColor="#97b53c">
+        벌레
+      </Button>
+      <Button onClick={handleClick} bgColor="#321660">
+        고스트
+      </Button>
+      <Button onClick={handleClick} bgColor="#3e85bb">
+        강철
+      </Button>
+      <Button onClick={handleClick} bgColor="#de4f27">
+        불꽃
+      </Button>
+      <Button onClick={handleClick} bgColor="#1a8de4">
+        물
+      </Button>
+      <Button onClick={handleClick} bgColor="#308f18">
+        풀
+      </Button>
+      <Button onClick={handleClick} bgColor="#eae428">
+        전기
+      </Button>
+      <Button onClick={handleClick} bgColor="#e38661">
+        에스퍼
+      </Button>
+      <Button onClick={handleClick} bgColor="#82e4ff">
+        얼음
+      </Button>
+      <Button onClick={handleClick} bgColor="#5b53cf">
+        드래곤
+      </Button>
+      <Button onClick={handleClick} bgColor="#444444">
+        악
+      </Button>
+      <Button onClick={handleClick} bgColor="#e695ff">
+        페어리
+      </Button>
+    </>
   );
 };
 
