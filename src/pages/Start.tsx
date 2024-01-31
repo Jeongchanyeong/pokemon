@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import MessageForm from '../common/MessageForm';
 
 const Start = () => {
   const navigate = useNavigate();
@@ -42,6 +43,9 @@ const Start = () => {
     <>
       <Wrapper>
         <Column></Column>
+        <MessageForm />
+        {/* 메세지 폼이 사라질 때 StartButton이 뜨도록 구현 */}
+
         <StartButton
           onClick={() => {
             navigate('/list');
