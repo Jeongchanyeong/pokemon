@@ -1,9 +1,19 @@
 import React from 'react';
 
-const List = () => {
-  return <h1>포켓몬 리스트 페이지 입니다.</h1>;
-};
+import GlobalButton from '../common/GlobalButton';
 
-// 다른 페이지에서 api를 해당 페이지에 받아온 후 PokeItem에 prop으로 내려준다.
+const List = () => {
+  const message = {
+    find: [`야생의 @@@이 나타났다! 어떻게 할까?`],
+    catch: [`좋았어!! @@@, 넌 내꺼야!`],
+    runAway: [`@@@ : 감사합니다?`],
+  };
+
+  return (
+    <>
+      <h1>포켓몬 리스트 페이지 입니다.</h1>
+    </>
+  );
+};
 
 export default List;
