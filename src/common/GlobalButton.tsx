@@ -18,7 +18,7 @@ const MyButton = styled.button`
   border: none;
   border-radius: 5px;
 
-  background-color: #cb6019;
+  background-color: #868686;
   color: white;
 
   font-family: 'Galmuri11', sans-serif;
@@ -26,7 +26,7 @@ const MyButton = styled.button`
   cursor: pointer;
 `;
 
-const GlobalButton = ({ type, text, onClick }: ButtonProps) => {
+const GlobalButton = ({ text, onClick }: ButtonProps) => {
   return <MyButton onClick={onClick}>{text}</MyButton>;
 };
 
