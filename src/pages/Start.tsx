@@ -1,11 +1,8 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import MessageForm from '../common/MessageForm';
+import StartMessageForm from '../common/MessageForm/StartMessageForm';
 
+// start 페이지는 해당 폼이 등장, 사라짐만 관리를 할까?
 const Start = () => {
-  const navigate = useNavigate();
-
   const Wrapper = styled.div`
     width: 100vw;
     height: 100vh;
@@ -25,34 +22,30 @@ const Start = () => {
     display: flex;
   `;
 
-  const StartButton = styled.button`
-    background-color: #851729;
-    color: #ffffff;
-    font-size: 150px;
-    font-family: 'Galmuri11', sans-serif;
+  // const StartButton = styled.button`
+  //   background-color: #851729;
+  //   color: #ffffff;
+  //   font-size: 150px;
+  //   font-family: 'Galmuri11', sans-serif;
 
-    width: 500px;
-    height: 200px;
+  //   border-radius: 20px;
+  //   border: 4px dotted;
+  //   border-color: #fff88b;
+  // `;
 
-    border-radius: 20px;
-    border: 4px dotted;
-    border-color: #fff88b;
-  `;
+  const startMessage: string[] = [
+    '왜 이렇게 늦은거야 자네..! 포켓몬들이 얼마나 기다리고 있었는지 알아?',
+    '늦은 감이 있긴 하지만... 포켓몬 세계에 다시 돌아온 것을 환영하네.',
+    '잊지 않았지? 여기서는 원하는 포켓몬들 잡을 수도, 별명을 지어줄 수도, 원하지 않는다면 방출 시킬수도 있지.',
+    '뭐 예전에 다 해본 것들이니 금방 할 수 있을거라고 믿는다네. 일단 어서 들어와!!',
+  ];
 
   return (
     <>
       <Wrapper>
         <Column></Column>
-        <MessageForm />
+        <StartMessageForm />
         {/* 메세지 폼이 사라질 때 StartButton이 뜨도록 구현 */}
-
-        <StartButton
-          onClick={() => {
-            navigate('/list');
-          }}
-        >
-          Start
-        </StartButton>
         <Column></Column>
       </Wrapper>
     </>
