@@ -1,33 +1,67 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import { styled } from 'styled-components';
 
-interface ButtonProps {
-  type: string;
-  text: string;
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  buttonType?: 'small' | 'medium' | 'large' | 'circle' | 'delete';
 }
 
-// 크기를 어떻게 조절할 것인지?
-// number || undefined or ? 시 어떤 타입까지 가능한 것인지 명확하게 구분 후 사용하기
+// delete 버튼, background color만 다를텐데
+// 최소 기능만 넣고 해당 컴포넌트에서는 styled(GlobalButton)attr...as `` 으로 사용한다?
+// -> x 기존 globalbutton의 스타일이 적용되지 않고 Message의 애니메이션이 적용되지 않음. 왜?
 
-const MyButton = styled.button`
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 5px;
-
+// type을 만들어서 지정해주자 props로는 small, medium, large, circle, delete (defalut에서 색깔만 살짝 다름) 버튼
+// case별로 나눠서 props로 넘겨주자
+const ButtonStyle = (props: ButtonProps) => {
+  switch (props.buttonType) {
+    case 'small':
+      return `
+        width : 24px;
+        height: 12px;
+      `;
+    case 'medium':
+      return `
+        width : 48px;
+        height: 24px;
+        font-size: 14px;
+      `;
+    case 'large':
+      return `
+        width : 96px;
+        height: 48px;
+        font-size: 16px;
+      `;
+    case 'circle':
+      return `
+        width : 50px;
+        height: 50px;
+        border-radius: 50%;
+      `;
+    case 'delete':
+      return `
+        width : 48px;
+        height: 24px;
+        background-color: #bd1b1b;
+        color: #fff;
+      `;
+    default:
+      return '';
+  }
+};
+const MyButton = styled.button<ButtonProps>`
   border: none;
-  border-radius: 5px;
-
-  background-color: #868686;
-  color: white;
-
+  border-radius: 10px;
   font-family: 'Galmuri11', sans-serif;
 
   cursor: pointer;
+  ${ButtonStyle}
 `;
 
-const GlobalButton = ({ text, onClick }: ButtonProps) => {
-  return <MyButton onClick={onClick}>{text}</MyButton>;
+const GlobalButton = ({ onClick, children, buttonType }: ButtonProps) => {
+  return (
+    <MyButton buttonType={buttonType} onClick={onClick}>
+      {children}
+    </MyButton>
+  );
 };
 
 GlobalButton.defaultProps = {
