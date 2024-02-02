@@ -33,22 +33,13 @@ const Start = () => {
   //   border-color: #fff88b;
   // `;
 
-  const startMessage: string[] = [
-    '왜 이렇게 늦은거야 자네..! 포켓몬들이 얼마나 기다리고 있었는지 알아?',
-    '늦은 감이 있긴 하지만... 포켓몬 세계에 다시 돌아온 것을 환영하네.',
-    '잊지 않았지? 여기서는 원하는 포켓몬들 잡을 수도, 별명을 지어줄 수도, 원하지 않는다면 방출 시킬수도 있지.',
-    '뭐 예전에 다 해본 것들이니 금방 할 수 있을거라고 믿는다네. 일단 어서 들어와!!',
-  ];
-
   return (
-    <>
-      <Wrapper>
-        <Column></Column>
-        <StartMessageForm />
-        {/* 메세지 폼이 사라질 때 StartButton이 뜨도록 구현 */}
-        <Column></Column>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <Column></Column>
+      <StartMessageForm />
+      {/* 메세지 폼이 사라질 때 StartButton이 뜨도록 구현 */}
+      <Column></Column>
+    </Wrapper>
   );
 };
 
