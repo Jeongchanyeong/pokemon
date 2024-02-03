@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes } from 'react';
 import { styled } from 'styled-components';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  buttonType?: 'small' | 'medium' | 'large' | 'circle' | 'delete';
+  buttontype?: 'small' | 'medium' | 'large' | 'circle' | 'delete';
 }
 
 // delete 버튼, background color만 다를텐데
@@ -12,7 +12,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 // type을 만들어서 지정해주자 props로는 small, medium, large, circle, delete (defalut에서 색깔만 살짝 다름) 버튼
 // case별로 나눠서 props로 넘겨주자
 const ButtonStyle = (props: ButtonProps) => {
-  switch (props.buttonType) {
+  switch (props.buttontype) {
     case 'small':
       return `
         width : 24px;
@@ -56,9 +56,9 @@ const MyButton = styled.button<ButtonProps>`
   ${ButtonStyle}
 `;
 
-const GlobalButton = ({ onClick, children, buttonType }: ButtonProps) => {
+const GlobalButton = ({ onClick, children, buttontype }: ButtonProps) => {
   return (
-    <MyButton buttonType={buttonType} onClick={onClick}>
+    <MyButton buttontype={buttontype} onClick={onClick}>
       {children}
     </MyButton>
   );
