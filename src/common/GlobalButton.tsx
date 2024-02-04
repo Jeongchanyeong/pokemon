@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes } from 'react';
 import { styled } from 'styled-components';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  buttontype?: 'small' | 'medium' | 'large' | 'circle' | 'delete';
+  buttontype?: 'small' | 'medium' | 'large' | 'circle' | 'delete' | 'start';
 }
 
 // delete 버튼, background color만 다를텐데
@@ -15,34 +15,59 @@ const ButtonStyle = (props: ButtonProps) => {
   switch (props.buttontype) {
     case 'small':
       return `
-        width : 24px;
-        height: 12px;
+        padding: 6px 12px;
+
       `;
     case 'medium':
       return `
-        width : 48px;
-        height: 24px;
+        padding: 12px 24px;
         font-size: 14px;
       `;
     case 'large':
       return `
-        width : 96px;
-        height: 48px;
+        padding: 24px 48px;
         font-size: 16px;
       `;
     case 'circle':
       return `
-        width : 50px;
+        width: 50px;
         height: 50px;
         border-radius: 50%;
       `;
     case 'delete':
       return `
-        width : 48px;
-        height: 24px;
+        padding: 12px 24px;
         background-color: #bd1b1b;
         color: #fff;
       `;
+
+    case 'start':
+      return `
+      color: #fff;
+
+      background-color: #e74c3c;
+      border: 5px ridge #811e13;
+      border-radius: 0.6em;
+
+      cursor: pointer;
+      font-size: 30px;
+      font-weight: 400;
+      padding: 2.4em 5.6em;
+      text-align: center;
+      font-weight: 700;
+
+      &:hover {
+        color: #fffb00;
+        transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+      }
+
+
+  &:active {
+    position: relative;
+    top: 2px;
+  }
+        `;
+
     default:
       return '';
   }
