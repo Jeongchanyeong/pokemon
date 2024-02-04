@@ -9,7 +9,7 @@ interface ButtonProps {
 const Button = styled.button<ButtonProps>`
   width: 140px;
   height: 30px;
-  margin-top: 18px;
+  margin-top: 16px;
   border: none;
   border-radius: 15px;
 

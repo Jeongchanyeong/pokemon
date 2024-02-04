@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const typingAnimation = keyframes`
@@ -9,11 +8,12 @@ const typingAnimation = keyframes`
 const Text = styled.p`
   display: inline-block;
   position: relative;
-  box-sizing: border-box;
-
   overflow: hidden;
-  animation: ${typingAnimation} 1s steps(30) 1;
+
+  box-sizing: border-box;
   white-space: nowrap;
+
+  animation: ${typingAnimation} 1s steps(30) 1;
 `;
 
 const Message = ({ text }: any) => {

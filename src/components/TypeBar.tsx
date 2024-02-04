@@ -7,15 +7,10 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  left: 0;
-  top: 0;
-
   background-color: #2f2f2f;
-  width: 200px;
+  width: 10%;
   height: 100%;
-
   overflow: auto;
-  position: fixed;
 `;
 
 const ButtonWrapper = styled.div`

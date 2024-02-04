@@ -1,12 +1,20 @@
-import React from 'react';
+import styled from 'styled-components';
 
-import GlobalButton from '../common/GlobalButton';
+import TypeBar from '../components/TypeBar';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+
+const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* 화면 전체 높이 */
+`;
 
 const List = () => {
   return (
-    <>
-      <h1>포켓몬 리스트 페이지 입니다.</h1>
-    </>
+    <PageContainer>
+      <h1>이곳은 Listpage입니다.</h1>
+    </PageContainer>
   );
 };
 
