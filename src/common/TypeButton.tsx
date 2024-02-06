@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+/*
+   Pokemon Type도 API 받아와야함. 로직 어떻게 짜야할지?
+   TypeButton 내에서는 filter사용하여서?
+ */
+
 interface ButtonProps {
   bgColor: string;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
