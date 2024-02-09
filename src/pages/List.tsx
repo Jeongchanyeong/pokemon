@@ -4,8 +4,9 @@ import TypeBar from '../components/TypeBar';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import PokeDetail from '../common/PokeDetail';
+import PokeItem from '../common/PokeItem';
 
 /* 1. API 활용?
 
@@ -44,12 +45,42 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  background-color: red;
 `;
 
+interface PokeDataType {
+  name: string;
+  id: number;
+}
+
 const List = () => {
+  const [data, setData] = useState([]);
+  const dataId = useRef(0);
+
+  const PokeData = async () => {
+    // API 가져와서 Json 형태로 변환
+    const res = await fetch(
+      'https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0'
+    ).then((res) => res.json());
+
+    // 불러온 API 0 ~ 151까지 불러오기
+    const initData = res.results.slice(0, 151).map((item: PokeDataType) => {
+      return {
+        name: item.name,
+        id: dataId.current++,
+      };
+    });
+
+    setData(initData);
+  };
+
+  useEffect(() => {
+    PokeData();
+  }, []);
+
   return (
     <PageContainer>
-      <PokeDetail />
+      <PokeItem data={data} />
     </PageContainer>
   );
 };

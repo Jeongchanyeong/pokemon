@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 /* 1. API 받아오고 뿌리기
  API 받아 올 것임
@@ -10,8 +11,25 @@ import React from 'react';
 
 */
 
-const PokeItem = () => {
-  return <div></div>;
+const PokeWrapper = styled.div`
+  background-color: blue;
+`;
+
+interface PokeDataProps {
+  data: any;
+}
+
+const PokeItem = ({ data }: PokeDataProps) => {
+  return (
+    <PokeWrapper>
+      {data.map((item: any) => (
+        <div key={item.id}>
+          <h1>{item.name}</h1>
+          <h1>{item.id}</h1>
+        </div>
+      ))}
+    </PokeWrapper>
+  );
 };
 
 export default PokeItem;
