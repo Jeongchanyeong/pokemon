@@ -12,7 +12,7 @@ import styled from 'styled-components';
 */
 
 const PokeWrapper = styled.div`
-  background-color: blue;
+  background-color: #787878;
 `;
 
 interface PokeDataProps {
@@ -26,6 +26,7 @@ const PokeItem = ({ data }: PokeDataProps) => {
         <div key={item.id}>
           <h1>{item.name}</h1>
           <h1>{item.id}</h1>
+          <img src={item.front_default} />
         </div>
       ))}
     </PokeWrapper>

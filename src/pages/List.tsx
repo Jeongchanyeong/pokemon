@@ -49,13 +49,13 @@ const PageContainer = styled.div`
 `;
 
 interface PokeDataType {
+  front_default: any;
   name: string;
   id: number;
 }
 
 const List = () => {
   const [data, setData] = useState([]);
-  const dataId = useRef(0);
 
   const PokeData = async () => {
     // API 가져와서 Json 형태로 변환
@@ -64,12 +64,17 @@ const List = () => {
     ).then((res) => res.json());
 
     // 불러온 API 0 ~ 151까지 불러오기
-    const initData = res.results.slice(0, 151).map((item: PokeDataType) => {
-      return {
-        name: item.name,
-        id: dataId.current++,
-      };
-    });
+    const initData = res.results
+      .slice(0, 151)
+      .map((item: PokeDataType, index: number) => {
+        return {
+          name: item.name,
+          id: index + 1,
+          front_default: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${
+            index + 1
+          }.gif`,
+        };
+      });
 
     setData(initData);
   };
