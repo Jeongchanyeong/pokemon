@@ -12,24 +12,49 @@ import styled from 'styled-components';
 */
 
 const PokeWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 20px;
+
   background-color: #787878;
+  margin: 5px;
+
+  img {
+    height: auto;
+  }
+`;
+
+const PokeItemInfo = styled.div`
+  padding: 30px;
+  h1 {
+    color: whitesmoke;
+  }
 `;
 
 interface PokeDataProps {
   data: any;
 }
 
+const PokeType = styled.div`
+  padding: 30px;
+`;
 const PokeItem = ({ data }: PokeDataProps) => {
   return (
-    <PokeWrapper>
+    <>
       {data.map((item: any) => (
-        <div key={item.id}>
-          <h1>{item.name}</h1>
-          <h1>{item.id}</h1>
+        <PokeWrapper key={item.id}>
+          <PokeItemInfo>
+            <h1>{item.id}</h1>
+            <h1>{item.name}</h1>
+          </PokeItemInfo>
+
           <img src={item.front_default} />
-        </div>
+          <PokeType>포켓몬 타입이 들어갈 자리입니다.</PokeType>
+        </PokeWrapper>
       ))}
-    </PokeWrapper>
+    </>
   );
 };
 
