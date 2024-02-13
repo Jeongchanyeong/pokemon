@@ -14,22 +14,87 @@ import styled from 'styled-components';
 const PokeWrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
+
   flex-direction: column;
 
-  padding: 20px;
-
-  background-color: #787878;
+  width: calc(15%);
+  height: 300px;
   margin: 5px;
 
+  padding: 30px;
+
+  border-radius: 25px;
+  background: linear-gradient(145deg, #ffffff, #eeeeee);
+  box-shadow: 5px 5px 10px #e8e8e8;
+`;
+
+const PokeItemInfo = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  justify-content: space-between;
+  h1 {
+    color: #000000;
+  }
+`;
+const PokeId = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(90deg, #ffffff, #f4f4f4);
+  box-shadow: 5px 5px 5px #f2f2f2;
+  border-radius: 10%;
+  width: 25px;
+  height: 5px;
+  padding: 12px;
+`;
+
+const PokeName = styled.div`
+  // PokeId랑 디자인 똑같음
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(90deg, #ffffff, #f4f4f4);
+  box-shadow: 5px 5px 5px #f2f2f2;
+  border-radius: 10%;
+  height: 5px;
+  padding: 12px;
+
+  width: auto;
+`;
+
+const PokeImg = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
   img {
+    width: 40%;
     height: auto;
   }
 `;
 
-const PokeItemInfo = styled.div`
-  padding: 30px;
-  h1 {
-    color: whitesmoke;
+const PokeType = styled.div`
+  width: 100%;
+`;
+
+const PokeBall = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  width: 100%;
+  padding: 15px;
+  img {
+    width: 18px;
+    height: auto;
   }
 `;
 
@@ -37,20 +102,28 @@ interface PokeDataProps {
   data: any;
 }
 
-const PokeType = styled.div`
-  padding: 30px;
-`;
 const PokeItem = ({ data }: PokeDataProps) => {
   return (
     <>
       {data.map((item: any) => (
         <PokeWrapper key={item.id}>
           <PokeItemInfo>
-            <h1>{item.id}</h1>
-            <h1>{item.name}</h1>
+            <PokeId>
+              <h1>{item.id}</h1>
+            </PokeId>
+            <PokeName>
+              <h1>{item.name}</h1>
+            </PokeName>
           </PokeItemInfo>
 
-          <img src={item.front_default} />
+          <PokeImg>
+            <img src={item.front_default} />
+          </PokeImg>
+
+          {/*  포켓볼을 컴포넌트화 시켜서 import 예정*/}
+          <PokeBall>
+            <img src="../assets/pokeball.png" />
+          </PokeBall>
           <PokeType>포켓몬 타입이 들어갈 자리입니다.</PokeType>
         </PokeWrapper>
       ))}

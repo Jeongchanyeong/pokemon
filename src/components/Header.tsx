@@ -2,12 +2,14 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+  display: flex;
   width: 100%;
-  height: auto;
-  background-color: #ff0000;
+  align-items: center;
+  background-color: #d6d6d6;
+  padding: 12px;
 
   img {
-    width: 220px;
+    width: 150px;
     height: auto;
   }
 `;
@@ -15,8 +17,12 @@ const Wrapper = styled.div`
 const Logo = styled.div``;
 const Header = () => {
   const navigate = useNavigate();
+
   const goListPage = () => {
-    navigate('/');
+    navigate('/list');
+  };
+  const goMyPokemon = () => {
+    navigate('/myPokemon');
   };
 
   return (
@@ -24,6 +30,9 @@ const Header = () => {
       <Logo onClick={goListPage}>
         <img src="../assets/pokemonTitle.png" />
       </Logo>
+
+      <div onClick={goMyPokemon}>myPokemon</div>
+      <input></input>
     </Wrapper>
   );
 };

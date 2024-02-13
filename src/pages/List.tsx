@@ -1,29 +1,44 @@
 import styled from 'styled-components';
 
+import { useEffect, useRef, useState } from 'react';
+import PokeItem from '../common/PokeItem';
 import TypeBar from '../components/TypeBar';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import axios from 'axios';
-import { useEffect, useRef, useState } from 'react';
-import PokeDetail from '../common/PokeDetail';
-import PokeItem from '../common/PokeItem';
 
 /* 배치
   pokeItem -> 한줄에 5개씩.
   Header, Footer, TypeButton import
   검색창 filtering 기능 구현
-
   무한 스크롤 구현
 */
 
+// url에 정보를 옮기고 pokeItem에 propd으로 export
+
 const PageContainer = styled.div`
   display: flex;
-  flex-direction: column;
+
   height: 100vh;
-  background-color: red;
+  flex-wrap: wrap;
+`;
+
+const PageMiddle = styled.div`
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const PokeItemWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 `;
 
 interface PokeDataType {
+  types: any;
   front_default: any;
   name: string;
   id: number;
@@ -31,15 +46,16 @@ interface PokeDataType {
 
 const List = () => {
   const [data, setData] = useState([]);
-
   const maxNum = 494;
+
   const PokeData = async () => {
     // API 가져와서 Json 형태로 변환
+
     const res = await fetch(
       `https://pokeapi.co/api/v2/pokemon?limit=${maxNum}`
     ).then((res) => res.json());
 
-    // 3세대 포켓몬 불러온 API 1 ~ 494까지 불러오기
+    // 3세대 포켓몬 불러온 API 1 ~ maxNum까지 불러오기
     const initData = res.results.map((item: PokeDataType, index: number) => {
       return {
         name: item.name,
@@ -54,13 +70,8 @@ const List = () => {
   };
 
   // 포켓몬 한국 이름 가져오기
-  Promise.all(requests)
-    .then((respones) => Promise.all(respones.map((res) => res.json())))
-    .then((results) => {
-      for (let result of results) {
-        koreanNames.push(result.name[2].name);
-      }
-    });
+
+  // 각 포켓몬별 타입 받아오기
 
   useEffect(() => {
     PokeData();
@@ -68,7 +79,14 @@ const List = () => {
 
   return (
     <PageContainer>
-      <PokeItem data={data} />
+      <Header />
+      <PageMiddle>
+        <TypeBar />
+        <PokeItemWrapper>
+          <PokeItem data={data} />
+        </PokeItemWrapper>
+      </PageMiddle>
+      <Footer />
     </PageContainer>
   );
 };

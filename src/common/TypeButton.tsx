@@ -14,7 +14,7 @@ interface ButtonProps {
 const Button = styled.button<ButtonProps>`
   width: 140px;
   height: 30px;
-  margin-top: 16px;
+  margin: 5px;
   border: none;
   border-radius: 15px;
 
