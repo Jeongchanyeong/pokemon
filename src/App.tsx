@@ -34,6 +34,10 @@ function App() {
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css"
         />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Black+Han+Sans:400"
+        />
       </Helmet>
       <GlobalStyle />
 

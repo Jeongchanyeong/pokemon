@@ -3,18 +3,63 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   display: flex;
-  width: 100%;
   align-items: center;
+
+  position: fixed;
+
+  width: 100%;
+  height: 60px;
   background-color: #d6d6d6;
-  padding: 12px;
+`;
+
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex: 1;
+  font-size: 30px;
+  font-family: 'Black Han Sans', sans-serif;
+  color: #ffaa00;
+  -webkit-text-stroke: 2px #2c2c2c;
+
+  cursor: pointer;
 
   img {
-    width: 150px;
+    padding-right: 18px;
+    width: 40px;
     height: auto;
   }
 `;
 
-const Logo = styled.div``;
+const PokemonLinkWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  flex: 2;
+
+  height: 100%;
+
+  font-size: 14px;
+  font-family: 'Black Han Sans', sans-serif;
+  -webkit-text-stroke: 1px #ffffff;
+  color: #2c2c2c;
+`;
+const PokemonLink = styled.span`
+  margin: 18px;
+  cursor: pointer;
+`;
+
+const SearchBar = styled.input`
+  margin-right: 20px;
+  flex: 1;
+  padding: 11px 11px 11px 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  font-family: 'Galmuri11', sans-serif;
+`;
+
 const Header = () => {
   const navigate = useNavigate();
 
@@ -24,15 +69,21 @@ const Header = () => {
   const goMyPokemon = () => {
     navigate('/myPokemon');
   };
-
+  const goStartPage = () => {
+    navigate('/');
+  };
   return (
     <Wrapper>
       <Logo onClick={goListPage}>
-        <img src="../assets/pokemonTitle.png" />
+        <img src="../assets/pikachu.png" />
+        <span>In My Poketmon</span>
       </Logo>
+      <PokemonLinkWrapper>
+        <PokemonLink onClick={goStartPage}>Start Page</PokemonLink>
+        <PokemonLink onClick={goMyPokemon}>myPokemon List</PokemonLink>
+      </PokemonLinkWrapper>
 
-      <div onClick={goMyPokemon}>myPokemon</div>
-      <input></input>
+      <SearchBar placeholder="포켓몬 이름으로 검색"></SearchBar>
     </Wrapper>
   );
 };

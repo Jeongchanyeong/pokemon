@@ -23,6 +23,9 @@ const PageContainer = styled.div`
 `;
 
 const PageMiddle = styled.div`
+  // Header 공간 차지
+  padding-top: 70px;
+
   background-color: #fafafa;
   display: flex;
   flex-direction: column;
