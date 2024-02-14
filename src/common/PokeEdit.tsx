@@ -16,14 +16,14 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 65%;
-  height: 85%;
+  width: auto;
+  height: 100%;
   background-color: #ededed;
 
   border-radius: 20px;
 
   padding: 30px;
-  margin: 0px 30px;
+  margin: 20px 30px;
 `;
 
 const PokeInfoLeft = styled.div`
@@ -32,10 +32,9 @@ const PokeInfoLeft = styled.div`
   flex-direction: column;
 
   height: 100%;
+  flex: 1;
 
   background-color: #858585;
-
-  flex: 1;
 `;
 
 const PokeImg = styled.div`
@@ -64,9 +63,9 @@ const PokeInfoRight = styled.div`
   flex-direction: column;
 
   height: 100%;
+  flex: 1;
 
   background-color: #ededed;
-  flex: 1;
 `;
 
 const PokeItemInfo = styled.div`
@@ -134,7 +133,7 @@ const PokeVisualDetail = styled.div`
   background-color: #b2b2b2;
 `;
 
-const PokeDetail = () => {
+const PokeEdit = () => {
   return (
     <Wrapper>
       <PokeInfoLeft>
@@ -180,4 +179,4 @@ const PokeDetail = () => {
   );
 };
 
-export default PokeDetail;
+export default PokeEdit;
