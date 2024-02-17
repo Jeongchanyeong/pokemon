@@ -23,14 +23,15 @@ const PageContainer = styled.div`
 `;
 
 const PageMiddle = styled.div`
-  // Header 공간 차지
-  padding-top: 70px;
-
-  background-color: #fafafa;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  // Header 공간 차지
+  padding-top: 70px;
+
+  background-color: #fafafa;
 `;
 
 const PokeItemWrapper = styled.div`
@@ -83,6 +84,7 @@ const List = () => {
   return (
     <PageContainer>
       <Header />
+
       <PageMiddle>
         <TypeBar />
         <PokeItemWrapper>
