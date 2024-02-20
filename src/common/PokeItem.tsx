@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 /* 1. API 받아오고 뿌리기
@@ -11,7 +12,7 @@ import styled from 'styled-components';
 
 */
 
-const PokeWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,9 +37,8 @@ const PokeItemInfo = styled.div`
 
   width: 100%;
   justify-content: space-between;
-  h1 {
-    color: #000000;
-  }
+
+  color: #2a2a2a;
 `;
 const PokeId = styled.div`
   display: flex;
@@ -91,12 +91,19 @@ const PokeBall = styled.div`
   align-items: center;
 
   width: 100%;
-  padding: 15px;
+  padding: 10px 0px;
+
   img {
-    width: 18px;
+    cursor: pointer;
+    width: 20px;
     height: auto;
   }
 `;
+
+const PokeBallClick = () => {
+  // 뭐 해야할지?
+  console.log('포켓볼 클릭');
+};
 
 interface PokeDataProps {
   data: any;
@@ -106,14 +113,10 @@ const PokeItem = ({ data }: PokeDataProps) => {
   return (
     <>
       {data.map((item: any) => (
-        <PokeWrapper key={item.id}>
+        <Wrapper key={item.id}>
           <PokeItemInfo>
-            <PokeId>
-              <h1>{item.id}</h1>
-            </PokeId>
-            <PokeName>
-              <h1>{item.name}</h1>
-            </PokeName>
+            <PokeId>{item.id}</PokeId>
+            <PokeName>{item.name}</PokeName>
           </PokeItemInfo>
 
           <PokeImg>
@@ -122,10 +125,10 @@ const PokeItem = ({ data }: PokeDataProps) => {
 
           {/*  포켓볼을 컴포넌트화 시켜서 import 예정*/}
           <PokeBall>
-            <img src="../assets/pokeball.png" />
+            <img onClick={PokeBallClick} src="../assets/pokeball.png" />
           </PokeBall>
-          <PokeType>포켓몬 타입이 들어갈 자리입니다.</PokeType>
-        </PokeWrapper>
+          <PokeType>{item.types}</PokeType>
+        </Wrapper>
       ))}
     </>
   );

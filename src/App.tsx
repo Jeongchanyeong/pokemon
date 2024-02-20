@@ -9,9 +9,9 @@ const GlobalStyle = createGlobalStyle`
 ${reset}
 
 
+
 body{
   font-family: 'Galmuri11', sans-serif;
-
   display: flex;
   align-items: center;
   justify-content: center;

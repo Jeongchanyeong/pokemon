@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { fetchPokemon } from '../apis/apis';
+import axios from 'axios';
 
 /* 배치
   pokeItem -> 한줄에 5개씩.
@@ -52,7 +53,48 @@ interface PokeDataType {
 }
 
 const List = () => {
-  const { isLoading, data } = useQuery('allPokemon', fetchPokemon);
+  const [data, setData] = useState([]);
+
+  // const { isLoading, data } = useQuery('allPokemon', fetchPokemon);
+  const maxNum = 494;
+
+  const PokeData = async () => {
+    try {
+      const res = await axios(
+        `https://pokeapi.co/api/v2/pokemon?limit=${maxNum}`
+      );
+      console.log(res);
+
+      const initData = res.data.results.map(
+        (item: PokeDataType, index: number) => {
+          return {
+            id: item.id,
+            name: item.name,
+            front_default: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${
+              index + 1
+            }.gif`,
+            types: item.types,
+          };
+        }
+      );
+      setData(initData);
+    } catch (error) {
+      console.log('에러', error);
+    }
+  };
+
+  useEffect(() => {
+    PokeData();
+  }, []);
+
+  console.log(PokeData);
+
+  /**
+   * 포켓몬 데이터 불러오기 : GET
+   * 포켓몬 잡기 : POST
+   * 내 포켓몬 이름 수정하기 : PUT
+   * 내 포켓몬 방출하기 : DELETE
+   */
 
   // const [data, setData] = useState([]);
 
@@ -87,13 +129,10 @@ const List = () => {
 
       <PageMiddle>
         <TypeBar />
-        {isLoading ? (
-          <Loader>로딩중..</Loader>
-        ) : (
-          <PokeItemWrapper>
-            <PokeItem data={data} />
-          </PokeItemWrapper>
-        )}
+
+        <PokeItemWrapper>
+          <PokeItem data={data} />
+        </PokeItemWrapper>
       </PageMiddle>
 
       <Footer />

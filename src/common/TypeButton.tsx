@@ -36,59 +36,58 @@ const TypeButton = () => {
 
   return (
     <>
-      {' '}
-      <Button onClick={handleClick} bgColor="#777777">
+      <Button onClick={handleClick} bgColor="#a5a5a5">
         노말
       </Button>
-      <Button onClick={handleClick} bgColor="#d18e38">
+      <Button onClick={handleClick} bgColor="#e6986e">
         격투
       </Button>
-      <Button onClick={handleClick} bgColor="#a1d5ff">
+      <Button onClick={handleClick} bgColor="#78aad9">
         비행
       </Button>
-      <Button onClick={handleClick} bgColor="#6f32b9">
+      <Button onClick={handleClick} bgColor="#916a96">
         독
       </Button>
-      <Button onClick={handleClick} bgColor="#8f4a00">
+      <Button onClick={handleClick} bgColor="#ab8630">
         땅
       </Button>
-      <Button onClick={handleClick} bgColor="#baa791">
+      <Button onClick={handleClick} bgColor="#a59382">
         바위
       </Button>
-      <Button onClick={handleClick} bgColor="#97b53c">
+      <Button onClick={handleClick} bgColor="#a4a469">
         벌레
       </Button>
-      <Button onClick={handleClick} bgColor="#321660">
+      <Button onClick={handleClick} bgColor="#8673a4">
         고스트
       </Button>
-      <Button onClick={handleClick} bgColor="#3e85bb">
+      <Button onClick={handleClick} bgColor="#6e8395">
         강철
       </Button>
-      <Button onClick={handleClick} bgColor="#de4f27">
+      <Button onClick={handleClick} bgColor="#c54d35">
         불꽃
       </Button>
-      <Button onClick={handleClick} bgColor="#1a8de4">
+      <Button onClick={handleClick} bgColor="#498abf">
         물
       </Button>
-      <Button onClick={handleClick} bgColor="#308f18">
+      <Button onClick={handleClick} bgColor="#5f9b50">
         풀
       </Button>
-      <Button onClick={handleClick} bgColor="#eae428">
+      <Button onClick={handleClick} bgColor="#ebdd56">
         전기
       </Button>
-      <Button onClick={handleClick} bgColor="#e38661">
+      <Button onClick={handleClick} bgColor="#e48a98">
         에스퍼
       </Button>
-      <Button onClick={handleClick} bgColor="#82e4ff">
+      <Button onClick={handleClick} bgColor="#9ad6f4">
         얼음
       </Button>
-      <Button onClick={handleClick} bgColor="#5b53cf">
+      <Button onClick={handleClick} bgColor="#555282">
         드래곤
       </Button>
-      <Button onClick={handleClick} bgColor="#444444">
+      <Button onClick={handleClick} bgColor="#676767">
         악
       </Button>
-      <Button onClick={handleClick} bgColor="#e695ff">
+      <Button onClick={handleClick} bgColor="#f6b5ef">
         페어리
       </Button>
     </>

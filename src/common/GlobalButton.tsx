@@ -33,6 +33,8 @@ const ButtonStyle = (props: ButtonProps) => {
         width: 50px;
         height: 50px;
         border-radius: 50%;
+        font-size: 20px;
+
       `;
     case 'delete':
       return `

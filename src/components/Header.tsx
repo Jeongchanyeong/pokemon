@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 
   width: 100%;
   height: 60px;
-  background-color: #d6d6d6;
+  background-color: #b4cbbe;
 `;
 
 const Logo = styled.div`
@@ -50,9 +50,9 @@ const PokemonLink = styled.span`
 `;
 
 const SearchBar = styled.input`
-  margin-right: 20px;
   flex: 1;
   padding: 11px 11px 11px 20px;
+  margin-right: 45px;
 
   border: none;
   border-radius: 10px;
@@ -72,6 +72,13 @@ const Header = () => {
   const goStartPage = () => {
     navigate('/');
   };
+  const goDetailPage = () => {
+    navigate('/detail');
+  };
+  const goEditPage = () => {
+    navigate('/edit');
+  };
+
   return (
     <Wrapper>
       <Logo onClick={goListPage}>
@@ -79,8 +86,10 @@ const Header = () => {
         <span>In My Poketmon</span>
       </Logo>
       <PokemonLinkWrapper>
-        <PokemonLink onClick={goStartPage}>Start Page</PokemonLink>
+        <PokemonLink onClick={goListPage}>Encyclopedia</PokemonLink>
         <PokemonLink onClick={goMyPokemon}>myPokemon List</PokemonLink>
+        <PokemonLink onClick={goDetailPage}>Detail</PokemonLink>
+        <PokemonLink onClick={goEditPage}>Edit</PokemonLink>
       </PokemonLinkWrapper>
 
       <SearchBar placeholder="포켓몬 이름으로 검색"></SearchBar>
