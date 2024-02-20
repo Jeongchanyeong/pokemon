@@ -1,10 +1,12 @@
 import styled from 'styled-components';
-
-import { useEffect, useRef, useState } from 'react';
 import PokeItem from '../common/PokeItem';
 import TypeBar from '../components/TypeBar';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+
+import { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
+import { fetchPokemon } from '../apis/apis';
 
 /* 배치
   pokeItem -> 한줄에 5개씩.
@@ -40,6 +42,7 @@ const PokeItemWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
+const Loader = styled.h1``;
 
 interface PokeDataType {
   types: any;
@@ -49,37 +52,34 @@ interface PokeDataType {
 }
 
 const List = () => {
-  const [data, setData] = useState([]);
-  const maxNum = 494;
+  const { isLoading, data } = useQuery('allPokemon', fetchPokemon);
 
-  const PokeData = async () => {
-    // API 가져와서 Json 형태로 변환
+  // const [data, setData] = useState([]);
 
-    const res = await fetch(
-      `https://pokeapi.co/api/v2/pokemon?limit=${maxNum}`
-    ).then((res) => res.json());
+  // const PokeData = async () => {
+  //   // API 가져와서 Json 형태로 변환
 
-    // 3세대 포켓몬 불러온 API 1 ~ maxNum까지 불러오기
-    const initData = res.results.map((item: PokeDataType, index: number) => {
-      return {
-        name: item.name,
-        id: index + 1,
-        front_default: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${
-          index + 1
-        }.gif`,
-      };
-    });
+  //   const res = await fetch(
+  //     `https://pokeapi.co/api/v2/pokemon?limit=${maxNum}`
+  //   ).then((res) => res.json());
 
-    setData(initData);
-  };
+  //   // 3세대 포켓몬 불러온 API 1 ~ maxNum까지 불러오기
+  //   const initData = res.results.map((item: PokeDataType, index: number) => {
+  //     return {
+  //       name: item.name,
+  //       front_default: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${
+  //         index + 1
+  //       }.gif`,
+  //       types: item.types,
+  //     };
+  //   });
 
-  // 포켓몬 한국 이름 가져오기
+  //   setData(initData);
+  // };
 
-  // 각 포켓몬별 타입 받아오기
-
-  useEffect(() => {
-    PokeData();
-  }, []);
+  // useEffect(() => {
+  //   PokeData();
+  // }, []);
 
   return (
     <PageContainer>
@@ -87,10 +87,15 @@ const List = () => {
 
       <PageMiddle>
         <TypeBar />
-        <PokeItemWrapper>
-          <PokeItem data={data} />
-        </PokeItemWrapper>
+        {isLoading ? (
+          <Loader>로딩중..</Loader>
+        ) : (
+          <PokeItemWrapper>
+            <PokeItem data={data} />
+          </PokeItemWrapper>
+        )}
       </PageMiddle>
+
       <Footer />
     </PageContainer>
   );
