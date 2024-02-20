@@ -1,5 +1,3 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 /* 1. API 받아오고 뿌리기
@@ -127,7 +125,7 @@ const PokeItem = ({ data }: PokeDataProps) => {
           <PokeBall>
             <img onClick={PokeBallClick} src="../assets/pokeball.png" />
           </PokeBall>
-          <PokeType>{item.types}</PokeType>
+          <PokeType></PokeType>
         </Wrapper>
       ))}
     </>
