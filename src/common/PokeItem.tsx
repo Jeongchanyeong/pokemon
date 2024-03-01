@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 /* 1. API 받아오고 뿌리기
@@ -21,6 +22,8 @@ const Wrapper = styled.div`
   border-radius: 25px;
   background: linear-gradient(145deg, #ffffff, #eeeeee);
   box-shadow: 5px 5px 10px #e8e8e8;
+
+  cursor: pointer;
 `;
 
 const PokeItemInfo = styled.div`
@@ -103,17 +106,32 @@ interface PokeDataProps {
 }
 
 const PokeItem = ({ data }: PokeDataProps) => {
+  const navigate = useNavigate();
+
+  const GoPokeDetail = (id: number) => {
+    navigate(`/detail/${id}`);
+  };
+
+  if (!data || data.length === 0) {
+    return null;
+  }
   return (
     <>
       {data.map((item: any) => (
-        <Wrapper key={item.id}>
+        <Wrapper key={item.id} onClick={() => GoPokeDetail(item.id)}>
           <PokeItemInfo>
             <PokeId>{item.id}</PokeId>
             <PokeName>{item.name}</PokeName>
           </PokeItemInfo>
+
           <PokeImg>
             <img src={item.front_default} />
           </PokeImg>
+
+          {/*  포켓볼을 컴포넌트화 시켜서 import 예정*/}
+          <PokeBall>
+            <img onClick={PokeBallClick} src="../assets/pokeball.png" />
+          </PokeBall>
           <PokeType></PokeType>
         </Wrapper>
       ))}
