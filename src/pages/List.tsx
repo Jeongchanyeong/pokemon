@@ -5,7 +5,6 @@ import PokeItem from '../common/PokeItem';
 import TypeBar from '../components/TypeBar';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Suspense } from 'react';
 
 const PageContainer = styled.div`
   display: flex;
@@ -32,32 +31,18 @@ const PokeItemWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const Loader = styled.h1``;
 
 const List = () => {
   const { data: pokemonList } = useGetPokemonList();
-
-  /**
-   * 포켓몬 데이터 불러오기 : GET
-   * 포켓몬 잡기 : POST
-   * 내 포켓몬 이름 수정하기 : PUT
-   * 내 포켓몬 방출하기 : DELETE
-   */
-
-  // 선언적, 명령적
-  // isLoading이면 -> 로더
-  // 아니면 -> 컨텐츠
 
   return (
     <PageContainer>
       <Header />
       <PageMiddle>
         <TypeBar />
-        <Suspense fallback={<Loader>Loading..</Loader>}>
-          <PokeItemWrapper>
-            <PokeItem data={pokemonList} />
-          </PokeItemWrapper>
-        </Suspense>
+        <PokeItemWrapper>
+          <PokeItem data={pokemonList} />
+        </PokeItemWrapper>
       </PageMiddle>
       <Footer />
     </PageContainer>

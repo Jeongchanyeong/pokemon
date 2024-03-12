@@ -75,7 +75,7 @@ const StartMessageForm: React.FC<StartMessageFormProps> = ({
           </MessageFormWrapper>
 
           <GlobalButtonWrapper>
-            <GlobalButton buttontype="small" onClick={handleClick}>
+            <GlobalButton commonbtntype="small" onClick={handleClick}>
               {'>'}
             </GlobalButton>
           </GlobalButtonWrapper>

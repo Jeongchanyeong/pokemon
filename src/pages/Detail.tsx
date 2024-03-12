@@ -1,8 +1,12 @@
+import { useGetPokemonDetail } from '../hooks/api/useGetPokemonDetail';
+import { useNavigate } from 'react-router-dom';
+
+import styled from 'styled-components';
+
 import GlobalButton from '../common/GlobalButton';
 import PokeDetail from '../common/PokeDetail';
-import Footer from '../components/Footer';
 import Header from '../components/Header';
-import styled from 'styled-components';
+import Footer from '../components/Footer';
 
 const PageContainer = styled.div`
   display: flex;
@@ -34,19 +38,41 @@ const ButtonWrapper = styled.div`
 `;
 
 const Detail = () => {
+  const { data: pokemonDetail } = useGetPokemonDetail();
+
+  console.log(pokemonDetail);
+
+  const navigate = useNavigate();
+  const GoNextPokemon = (id: number) => {
+    navigate(`/detail/${id + 1}`);
+  };
+
+  const GoBeforePokemon = (id: number) => {
+    navigate(`/detail/${id - 1}`);
+  };
+
+  const GoPokemonList = () => {
+    navigate('/list');
+  };
+
   return (
     <PageContainer>
       <Header />
       <PageText>Pokemon Detail</PageText>
-
       <PageMiddle>
-        <GlobalButton buttontype={'circle'}>{'<'}</GlobalButton>
-        <PokeDetail />
-        <GlobalButton buttontype={'circle'}>{'>'}</GlobalButton>
+        <GlobalButton onClick={() => {}} commonbtntype={'circle'}>
+          {'<'}
+        </GlobalButton>
+        <PokeDetail data={pokemonDetail} />
+        <GlobalButton onClick={() => {}} commonbtntype={'circle'}>
+          {'>'}
+        </GlobalButton>
       </PageMiddle>
 
       <ButtonWrapper>
-        <GlobalButton buttontype={'small'}>{'≡'}</GlobalButton>
+        <GlobalButton onClick={GoPokemonList} commonbtntype={'small'}>
+          {'≡'}
+        </GlobalButton>
       </ButtonWrapper>
       <Footer />
     </PageContainer>

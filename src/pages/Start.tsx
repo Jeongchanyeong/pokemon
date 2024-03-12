@@ -88,7 +88,7 @@ const Start = () => {
           <StartMessageForm changeButtonForm={changeButtonForm} />
           {/* 버튼은 true일 때만 생성됨.  */}
           {visibleButton && (
-            <GlobalButton onClick={handleClick} buttontype="start">
+            <GlobalButton onClick={handleClick} commonbtntype="start">
               {'START'}
             </GlobalButton>
           )}

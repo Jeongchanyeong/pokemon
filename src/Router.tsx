@@ -12,7 +12,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Start />} />
         <Route path="/list" element={<List />} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail/:id" element={<Detail />} />
         <Route path="/myPokemon" element={<MyPokemon />} />
         <Route path="/edit" element={<Edit />} />
       </Routes>

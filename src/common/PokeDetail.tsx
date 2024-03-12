@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 /* 1. API 받아오고 뿌리기
@@ -128,26 +127,37 @@ const PokeBodyDetail = styled.div`
 const PokeVisual = styled.div`
   display: flex;
 `;
+
 const PokeVisualDetail = styled.div`
   margin: 0px 10px;
   border-radius: 10px;
   background-color: #b2b2b2;
 `;
 
-const PokeDetail = () => {
+interface PokeDataProps {
+  data: any;
+}
+
+const PokeDetail = ({ data }: PokeDataProps) => {
+  if (!data || data.length === 0) {
+    return null;
+  }
+
+  console.log(data);
+
   return (
     <Wrapper>
       <PokeInfoLeft>
         <PokeImg>
-          <img src="../assets/user.png" />
+          <img src={data.front_default} />
         </PokeImg>
         <PokeType>타입</PokeType>
       </PokeInfoLeft>
 
       <PokeInfoRight>
         <PokeItemInfo>
-          <PokeId>12</PokeId>
-          <PokeName>이상해씨</PokeName>
+          <PokeId>{data.id}</PokeId>
+          <PokeName>{data.name}</PokeName>
         </PokeItemInfo>
 
         <PokeRoot>
@@ -161,19 +171,27 @@ const PokeDetail = () => {
         <PokeBody>
           <PokeBodyDetail>
             <div>신장</div>
-            <span>2m</span>
+            <span>{data.height}</span>
           </PokeBodyDetail>
           <PokeBodyDetail>
             <div>무게</div>
-            <span>30kg</span>
+            <span>{data.weight}</span>
           </PokeBodyDetail>
         </PokeBody>
 
         <PokeVisual>
-          <PokeVisualDetail>앞</PokeVisualDetail>
-          <PokeVisualDetail>뒤</PokeVisualDetail>
-          <PokeVisualDetail>앞</PokeVisualDetail>
-          <PokeVisualDetail>뒤</PokeVisualDetail>
+          <PokeVisualDetail>
+            <img src={data.front_default} />
+          </PokeVisualDetail>
+          <PokeVisualDetail>
+            <img src={data.back_default} />
+          </PokeVisualDetail>
+          <PokeVisualDetail>
+            <img src={data.old_front_default} />
+          </PokeVisualDetail>
+          <PokeVisualDetail>
+            <img src={data.old_back_default} />
+          </PokeVisualDetail>
         </PokeVisual>
       </PokeInfoRight>
     </Wrapper>

@@ -49,9 +49,9 @@ const Edit = () => {
 
         <PokeEdit />
         <ButtonWrapper>
-          <GlobalButton buttontype="medium">{'편집 완료'}</GlobalButton>
+          <GlobalButton commonbtntype="medium">{'편집 완료'}</GlobalButton>
 
-          <GlobalButton buttontype="delete">{'보내주기'}</GlobalButton>
+          <GlobalButton commonbtntype="delete">{'보내주기'}</GlobalButton>
         </ButtonWrapper>
       </PageMiddle>
 

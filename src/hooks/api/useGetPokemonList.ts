@@ -1,6 +1,5 @@
 import axios from 'axios';
-import { useSuspenseQuery } from '@tanstack/react-query';
-import { BASE_FRONT_URL } from '../../constants/url';
+import { useQuery } from '@tanstack/react-query';
 
 // 상황
 // 1. 포켓몬 리스트 GET api에서 내가 원하는 정보들을 다 제공하지 않음
@@ -31,7 +30,7 @@ const getPokemonList = () => {
 
 // useQuery 훅을 반환하는 custom hook
 export const useGetPokemonList = () => {
-  return useSuspenseQuery({
+  return useQuery({
     queryKey: ['get-pokemon-list'],
     queryFn: getPokemonList,
     select: (data) => {
@@ -40,7 +39,9 @@ export const useGetPokemonList = () => {
           return {
             ...item,
             id: index + 1,
-            front_default: `${BASE_FRONT_URL}/${index + 1}.gif`,
+            front_default: `${process.env.REACT_APP_BASE_OLD_FRONT_URL}/${
+              index + 1
+            }.gif`,
           };
         }
       );

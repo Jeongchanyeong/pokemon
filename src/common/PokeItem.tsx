@@ -1,11 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-/* 1. API 받아오고 뿌리기
- API를 관리하는 파일, 폴더를 따로 만들어야하나? 고민해보기
- API로 어떤 데이터 받아와야하나? -> (id, name, pokemon 생김새, pokemon Type)
-*/
-
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -115,6 +110,7 @@ const PokeItem = ({ data }: PokeDataProps) => {
   if (!data || data.length === 0) {
     return null;
   }
+
   return (
     <>
       {data.map((item: any) => (
